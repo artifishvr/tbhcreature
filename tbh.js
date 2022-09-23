@@ -1,6 +1,10 @@
 function tbh() {
     console.log("the creature")
+    // TODO: add right click to shatter
+    yippee();
+}
 
+function yippee() {
     for (let i = 0; i < 100; i++) {
         confetti({
             particleCount: 10,
@@ -19,8 +23,14 @@ function tbh() {
             angle: 120,
             origin: { y: 0.7, x: 1 }
         });
-   }
-    
-    let audio = document.getElementById("audio");
+    }
+
+    var audio = document.createElement('audio');
+    audio.src = "yippee.mp3";
+    document.body.appendChild(audio);
     audio.play();
+
+    audio.onended = function () {
+        this.parentNode.removeChild(this);
+    }
 }
