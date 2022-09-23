@@ -1,9 +1,10 @@
 body {
     overflow: hidden;
+    background-color: white;
 }
 
 #tbh {
-    object-fit: cover;
+    object-fit: contain;
     width: 100vw;
     height: 100vh;
     position: fixed;
