@@ -9,7 +9,7 @@
     <meta name="description" content="the tbh creature">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="tbh.css">
-    
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Yippie!!!!!" />
     <meta property="og:description" content="Yippie!!!!!" />
@@ -26,10 +26,47 @@
 
 <body>
 
-    <img src="tbh.png" id="tbh" onclick="tbh()">
+    <img src="tbh.png" id="tbh" onclick="tbh(); clicked()">
+    <div id="snackbar">Try clicking!</div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        var clickedonce = false;
+        var x = document.getElementById("snackbar");
+        function clicked() {
+            clickedonce = true;
+            console.log("clicked");
+            x.className = x.className.replace("show", "");
+        }
+        function inactivityTime() {
+            let time;
+            document.onmousemove = resetTimer;
+            document.onclick = resetTimer;
+            function logout() {
+                if (clickedonce == false) {
+                
+
+                // Add the "show" class to DIV
+                x.className = "show";
+
+                // After 3 seconds, remove the show class from DIV
+                //setTimeout(function () { x.className = x.className.replace("show", ""); }, 2000);
+            }
+            }
+            function resetTimer() {
+                clearTimeout(time);
+                time = setTimeout(logout, 3000)
+                console.log("reset timer")
+            }
+        };
+
+        window.onload = function () {
+            inactivityTime();
+            console.log("loaded");
+        }
+    </script>
     <script src="tbh.js" async defer></script>
 </body>
 
