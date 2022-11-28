@@ -35,5 +35,12 @@ function yippee() {
     }
 }
 
+var clickedonce = false;
+var x = document.getElementById("snackbar");
+function clicked() {
+    clickedonce = true;
+    console.log("clicked");
+    x.className = x.className.replace("show", "");
+}
 
   
