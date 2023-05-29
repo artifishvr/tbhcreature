@@ -5,7 +5,7 @@ function tbh() {
 }
 
 function yippee() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
         confetti({
             particleCount: 10,
             spread: 70,
